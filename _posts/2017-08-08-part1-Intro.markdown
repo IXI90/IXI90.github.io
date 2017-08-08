@@ -17,4 +17,4 @@ The majority of RL problems can be formalized using Markov Decision Processes (M
 
 *State space* $\mathcal{S}$: The state space is the set that contains all possible environmental states. Every state $s \in \mathcal{S}$ fully characterizes the given situation, hence it contains all relevant information from the history. In other words, we consider processes that have the Markov Property, i.e. "the future is independent of the past given the present". To illustrate this, let us quickly apply this to our Snake example: a state of the game is defined by the coordinates of the body of the snake, the coordinate point of the food and the direction of our current movement.  
 
-*Action space* $\mathcal{A}$: The action space is the set of possible actions in every given state. 
+*Action space* $\mathcal{A}$: The action space is the set of possible actions, which can be taken in every state of the state space. With those actions the agent tries to control the system state, thus a chosen action (usually) affects the next state of the given RL problem. For example, our snake always has the option to go left, right, up and down.   
