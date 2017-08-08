@@ -13,4 +13,4 @@ This exciting part of Machine Learning deals with agents that have to take actio
 
 ### Markov Decision Processes
 
-The majority of RL problems can be formalized using Markov Decision Processes (MDP). A MDP is a tuple $<  \mathfrak{S}, A, P, R, γ>$
+The majority of RL problems can be formalized using Markov Decision Processes (MDP). A MDP is a tuple $<  \mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, γ>$
