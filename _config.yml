@@ -1,10 +1,10 @@
 # Site settings
-title: Neurocat blog
+title: Felix Assion blog
 email: 
 description: "Artificial Intelligence."
 baseurl: ""
-url: "http://f37.github.io"
-github_username:  f37
+url: "http://ixi90.github.io"
+github_username:  IXI90
 
 # Build settings
 markdown: kramdown
