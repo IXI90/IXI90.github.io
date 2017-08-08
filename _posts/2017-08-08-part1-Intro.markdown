@@ -15,4 +15,6 @@ This exciting part of Machine Learning deals with agents that have to take actio
 
 The majority of RL problems can be formalized using Markov Decision Processes (MDP). A MDP is a tuple $<\mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, γ>$: 
 
-\textit{State space} $\mathcal{S}$: The state space is the set that contains all possible environmental states. Every state $s \in \mathcal{S}$ fully characterizes the given situation, hence it contains all relevant information from the history. In other words, we consider processes that have the Markov Property, i.e. "the future is independent of the past given the present". To illustrate this, let us quickly apply this to our Snake example: a state of the game is defined by the coordinates of the body of the snake, the coordinate point of the food and the direction of our current movement.  
+$\textit{State space} \mathcal{S}$: The state space is the set that contains all possible environmental states. Every state $s \in \mathcal{S}$ fully characterizes the given situation, hence it contains all relevant information from the history. In other words, we consider processes that have the Markov Property, i.e. "the future is independent of the past given the present". To illustrate this, let us quickly apply this to our Snake example: a state of the game is defined by the coordinates of the body of the snake, the coordinate point of the food and the direction of our current movement.  
+
+$\textit{Action space} \mathcal{S}$: The action space is the set of possible actions in every given state. 
