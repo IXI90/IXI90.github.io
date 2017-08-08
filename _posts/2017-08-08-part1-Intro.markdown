@@ -3,7 +3,7 @@ layout: post
 comments: true
 title:  "Introduction to Reinforcement Learning: Part 1 - the Framework"
 excerpt: "We will discuss the mathematical framwork for RL problems - namely, Markov Decision Processes. The goal of this series of posts is to introduce all necessary concepts in order to understand Deep Q-Networks"
-date:   2017-08-07
+date:   2017-08-08
 mathjax: true
 ---
 
