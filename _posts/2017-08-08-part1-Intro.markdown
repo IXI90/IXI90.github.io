@@ -2,12 +2,12 @@
 layout: post
 comments: true
 title:  "Introduction to Reinforcement Learning: Part 1 - the Framework"
-excerpt: "We will discuss the mathematical framwork for RL problems - namely, Markov Decision Processes. The goal of this series of posts is to introduce all necessary concepts in order to understand Deep Q-Networks"
+excerpt: "We will discuss the mathematical framwork for RL problems - namely, Markov Decision Processes. The goal of this series of posts is to introduce all necessary concepts in order to understand Deep Q-Networks."
 date:   2017-08-08
 mathjax: true
 ---
 
 ## Reinforcement Learning 
 
-Bla bla
+This exciting part of Machine Learning deals with agents that have to take actions in a possibly unknown environment. Those agents try to maximize their personal utility (reward) by following a learned strategy (policy). In this series of posts, I will try to summarize my first experiences with RL. The overall goal of this series is to explain all concepts needed to understand the paper "Playing Atari with Deep Reinforcement Learning" (by V. Mnih et al.). Besides, the presented theoretical models will be used to create an agent that can play my first - still favourite - mobile phone game "Snake". I hope you enjoy the posts!      
 
