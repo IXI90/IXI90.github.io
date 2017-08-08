@@ -1,4 +1,4 @@
 # My blog
 
-bla bla
+Have fun with my blog!
 
