@@ -7,6 +7,8 @@ date:   2017-09-27
 mathjax: true
 ---
 
-## Policy Gradient Methods
+## Policy-based Methods
 
-Most of the famous success stories of Reinforcement Learning (RL) were in the area of value-based methods, e.g. Deep Q-Networks. As we have seen before those methods primarily try to estimate the optimal value or action-value function. A optimal policy is then derived from the value function (greedy action). 
+Most of the famous success stories of Reinforcement Learning (RL) were in the area of value-based methods, e.g. Deep Q-Networks (Q-algorithm). As we have seen before, those methods primarily try to estimate the optimal value or optimal action-value function. An optimal policy is then derived from the value function (greedy action). In the context of policy-based methods one follows a different strategy. Here, the policy is parametrised and thus, approximated directly without estimating the related value functions first. In other words, instead of learning an approximation of the underlying value function, policy-based methods attempt to search the space of possible policies directly. Why is this a good idea?
+
+Actually there are a lot of different reasons why this strategy might be beneficial: First of all, in certain environments the optimal policy might just be easier to approximate than the action-value function. However, this is really difficult to evaluate beforehand. A second reason is the possibility to represent stochastic policies. Most implementations of value-based methods lead to rather deterministic policies and thus ignore a lot of other possible good candidates. For example, in rock-paper-scissors with an "intelligent" opponent  
