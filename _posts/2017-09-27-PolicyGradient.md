@@ -14,4 +14,7 @@ Most of the famous success stories of Reinforcement Learning (RL) were in the ar
 Actually there are a lot of different reasons why this strategy might be beneficial: First of all, in certain environments the optimal policy might just be easier to approximate than the action-value function. However, this is really difficult to evaluate beforehand. A second reason is the possibility to represent stochastic policies. Most implementations of value-based methods lead to rather deterministic policies and thus ignore a lot of other possible good candidates. For example, in rock-paper-scissors with an "intelligent" opponent the Q-algorithm would not yield a promising strategy - since every deterministic policy will be beaten by the opponent after a few episodes. 
 Furthermore, a direct parametrisation of the policy has the nice effect that small changes in the parameters of the function lead to small changes in the policy. This was not at all true for value-based algorithms, due to the nature of greedy-policies. 
 
-One additional remark:     
+One additional remark: Above we presented value-based and policy-based methods as two separated opposing sides. However, those methods are not entirely disjoint. There are methods, called actor-critic models, which utilize value-based and policy-based ideas at the same time. Those actor-critic methods parametrise the policy directly and evaluate the quality of the policy with value-based methods. An example of this class of algorithms will be presented later on.
+
+### Our Situation
+
