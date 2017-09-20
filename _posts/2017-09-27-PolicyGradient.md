@@ -7,7 +7,7 @@ date:   2017-09-27
 mathjax: true
 ---
 
-## Policy-based Methods
+## Value-based vs. Policy-based Methods
 
 Most of the famous success stories of Reinforcement Learning (RL) were in the area of value-based methods, e.g. Deep Q-Networks (Q-algorithm). As we have seen before, those methods primarily try to estimate the optimal value or optimal action-value function. An optimal policy is then derived from the value function (e.g. by greedy action). In the context of policy-based methods one follows a different strategy. Here, the policy is parametrised and thus, approximated directly without estimating the related value functions first. In other words, instead of learning an approximation of the underlying value function, policy-based methods attempt to search the space of possible policies directly. Why is this a good idea?
 
@@ -16,5 +16,7 @@ Furthermore, a direct parametrisation of the policy has the nice effect that sma
 
 One additional remark: Above we presented value-based and policy-based methods as two separated opposing sides. However, those methods are not entirely disjoint. There are methods, called actor-critic models, which utilize value-based and policy-based ideas at the same time. Those actor-critic methods parametrise the policy directly and evaluate the quality of the policy with value-based methods. An example of this class of algorithms will be presented later on.
 
-### Our Situation
+## Our Situation
+
+In general, we will try to keep the notation of the "Introduction to Reinforcement Learning" blog post series. But, let us recall our RL framework real quick and change a few small things. As before we want to represent our environment as a Markov Decision Process (MDP) $< \mathcal{S}, \mathcal{A}, \mathcal{P}, which comprises: a state space $\mathcal{S}$, an action space $\mathcal{A}$, a stationary transition distribution function $\mathcal{P}: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow \[ 0,1 \ ]$, a reward function $\mathcal{R}: \mathcal{S} \times \mathcal{A} \rightarrow \mathbb{R}$ and a discount factor $\gamma \in \[ 0,1 \]$.      
 
