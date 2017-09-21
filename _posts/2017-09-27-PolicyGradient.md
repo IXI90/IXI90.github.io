@@ -31,5 +31,5 @@ where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>)
 
 In this class of algorithms the policy gets parametrised directly, thus we have a collection of parameters $\theta \in \mathbb{R}^n$ and those parameters define a policy $\pi _{\theta}$. For example, the parameters $\theta$ could be the weights of an artificial neural network and the values of the output units could represent the policy $\pi _{\theta}$. Our goal is to improve the policy $\pi _{\theta}$ by changing the underlying parameters $\theta$. But how do we evaluate whether $\pi _{\theta}$ is a good or bad policy?
       
-
-$ \int $
+For this we want to use the concept of the state-value function! We define $J(\theta) := V_{\pi_{\theta}} (s_0)$ as our objective function, which we then try to maximize. In other words, one tries to find suitable parameters $\theta$ that maximize the function $J$. It should be noted that this start-value in an episodic environment is only one way to define an objective function. In the literature you will find different strategies, e.g. average value and average reward per time-step. However, the resulting algorithms are often very similar.
+    
