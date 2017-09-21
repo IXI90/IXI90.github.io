@@ -25,6 +25,10 @@ Let us assume that we are in an episodic setting with a fixed endpoint at time s
 
 $$ V _{\pi} (s) := \mathbb{E} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \mid s _0 = s ] = \int _\mathbb{T}_s \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi} (\tau) d \tau  $$, 
 
-where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>) := \mathcal{R} (s_t,a_t)$ and $\mathbb{T}_s:= \langle <s_0,a_0,s_1,a_1,...,s_T> \in \mathbb{T} \mid s_0 = s \rangle$. This value function gives us the expected value of an episode that starts in state $s$ and then follows policy $\pi$.        
+where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>) := \mathcal{R} (s_t,a_t)$ and $\mathbb{T}_s:= \langle <s_0,a_0,s_1,a_1,...,s_T> \in \mathbb{T} \mid s_0 = s \rangle$. This value function gives us the expected value of an episode that starts in state $s$ and then the agent follows policy $\pi$. From now on always assume that we have one designated start state $s_0$ ($\mathcal{P}_0 (s_0) = 1$), i.e. we are primarily interested in $V _{\pi} (s_0)$.
+
+## Policy Gradient Methods
+
+In this class of algorithms the policy gets parametrised directly, thus we have a collection of parameters $\theta \in \mathbb{R}^n$ and those parameters define a policy $\pi _{\theta}$. For example, the parameters $\theta$ could be the weights of an artificial neural network and the values of the output units could represent the policy $\pi _{\theta}$. Our goal is to improve the policy $\pi _{\theta}$ by changing the underlying parameters $\theta$. But how do we evaluate whether $\pi _{\theta}$ is a good or bad policy?
       
 
