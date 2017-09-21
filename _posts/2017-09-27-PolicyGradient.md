@@ -66,4 +66,4 @@ This expression of the policy gradient is often the main statement of the "Polic
 
 $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'}^i \mid s _{t'}^i)) \sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i $$
 
-Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estimate of the action-value function of $\pi _{\theta}$ at time step $t$
+Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estimate of the action-value function of $\pi _{\theta}$ at time step $t$. At this point we could go in the direction of actor-critic 
