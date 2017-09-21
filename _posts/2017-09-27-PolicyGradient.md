@@ -44,7 +44,7 @@ For this we want to use the concept of the state-value function! We define $J(\t
 
 The usage of the derivative of the logarithm function in this context (in the last step above) is often called the "log-likelihood trick" in the literature. Now, consider for $\tau = <s_0,a_0,s_1,...,s_T>$ that 
 
-$$ \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) = \nabla _{\theta} log( \prod _{t=0}^{T-1} \pi(a _t \mid s _t) \mathcal{P}(s _{t+1} \mid a_t,s_t)) \\ = $$
+$$ \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) = \nabla _{\theta} log( \prod _{t=0}^{T-1} \pi(a _t \mid s _t) \mathcal{P}(s _{t+1} \mid a_t,s_t)) \\ = \nabla _{\theta} ( \sum _{t=0}^{T-1} log(\pi(a _t \mid s _t)) + \sum _{t=0}^{T-1} log(\mathcal{P}(s _{t+1} \mid a_t,s_t))) = \sum _{t=0}^{T-1}  \nabla _{\theta} log(\pi(a _t \mid s _t))$$
 
  
 
