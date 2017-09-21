@@ -54,6 +54,8 @@ A parameter update in the direction of $ \mathbb{E} _{\pi _{\theta}} [ \sum _{t=
 
 $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t=0}^{T-1} \gamma ^t r _{t}^i \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') )$$
 
-This is quite cool, but we want to go even a little bit further and try to construct gradient estimators that tend to have a lower variance than the one above. This time one uses $\nabla _{\theta} J(\theta) = \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}] =  \sum _{t=0}^{T-1} \gamma ^t \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}] $  
+This is quite cool, but we want to go even a little bit further and try to construct gradient estimators that tend to have a lower variance than the one above. This time one uses $\nabla _{\theta} J(\theta) = \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}] =  \sum _{t=0}^{T-1} \gamma ^t \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}] $. Additionally, let us define the set of all possible trajectories until time step $t$, denoted by $\mathbb{T}_t := \langle <s_0,a_0,...,s_t,a_t,s _{t+1}> \mid s _i \in \mathcal{S}, a _i \in \mathcal{A} \rangle$ and probability measure $\mathcal{P} _{\pi _{\theta}} (<s_0,a_0,s_1,...,s _{t+1}>)= \prod _{t=0}^{t-1} \pi _{\theta} (a _t \mid s _t) \mathcal{P}(s _{t+1} \mid a_t,s_t)$. This implies ...
+
+$$\nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}] =  \nabla _{\theta} \int _{\mathbb{T}} \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi _{\theta}} (\tau) d \tau \\ =  \nabla _{\theta} \int _{\mathbb{T}_t} \mathcal{R} _{t}(\tau_t)  \mathcal{P} _{\pi _{\theta_t}} (\tau) d \tau$$  
 
     
