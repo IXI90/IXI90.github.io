@@ -25,6 +25,6 @@ Let us assume that we are in an episodic setting with a fixed endpoint at time s
 
 $$ V _{\pi} (s) := \mathbb{E} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \mid s _0 = s ] = \int _\mathbb{T}_s \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi} (\tau) d \tau  $$, 
 
-where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>) := \mathcal{R} (s_t,a_t)$ and $\mathbb{T}_s:= \langle <s_0,a_0,s_1,a_1,...,s_T> \in \mathbb{T} \mid s_0 = s \rangle$. This value function gives us th        
+where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>) := \mathcal{R} (s_t,a_t)$ and $\mathbb{T}_s:= \langle <s_0,a_0,s_1,a_1,...,s_T> \in \mathbb{T} \mid s_0 = s \rangle$. This value function gives us the expected value of an episode that starts in state $s$ and then follows policy $\pi$.        
       
 
