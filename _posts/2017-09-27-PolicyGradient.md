@@ -38,7 +38,7 @@ For this we want to use the concept of the state-value function! We define $J(\t
  
  Let us try to calculate the gradient anyway...
  
- $$ \nabla _{\theta} J(\theta) = \nabla _{\theta} V _{\pi _{\theta}} (s_0) = \nabla _{\theta} \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi} (\tau) d \tau \\ =  \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)   \nabla _{\theta} \mathcal{P} _{\pi} (\tau) d \tau = \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi} (\tau)  \nabla _{\theta} log() \mathcal{P} _{\pi} (\tau)) d \tau $$
+ $$ \nabla _{\theta} J(\theta) = \nabla _{\theta} V _{\pi _{\theta}} (s_0) = \nabla _{\theta} \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi} (\tau) d \tau \\ =  \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)   \nabla _{\theta} \mathcal{P} _{\pi} (\tau) d \tau = \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi} (\tau)  \nabla _{\theta} log( \mathcal{P} _{\pi} (\tau)) d \tau $$
  
  
 
