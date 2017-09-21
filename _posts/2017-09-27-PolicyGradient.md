@@ -34,7 +34,12 @@ Our goal is to improve the policy $\pi _{\theta}$ by changing the underlying par
       
 For this we want to use the concept of the state-value function! We define $J(\theta) := V_{\pi_{\theta}} (s_0)$ as our objective function, which we then try to maximize. In other words, one tries to find suitable parameters $\theta$ that maximize the function $J$. As seen in the past blog posts, an optimal policy would yield a suprememum of $J$. It should be noted that this start-value in an episodic environment is only one way to define an objective function. In the literature you will find different strategies, e.g. average value and average reward per time-step. However, the resulting algorithms are often very similar.
  
- Like so many times before in machine learning, we would like to use gradient ascent to maximize the objective, i.e. we want to change $\theta$ in the direction of $\nabla _{\theta} J(\theta)$. At first glance this seems problematic, because $J$ contains an integral with respect to the probability measure $\mathcal{P} _{\pi _{\theta}}$, which in turn is influenced by the transition dynamics of the MDP and those dynamics are usually unknown.   
+ Like so many times before in machine learning, we would like to use gradient ascent to maximize the objective, i.e. we want to change $\theta$ in the direction of $\nabla _{\theta} J(\theta)$. At first glance this seems problematic, because $J$ contains an integral with respect to the probability measure $\mathcal{P} _{\pi _{\theta}}$, which in turn is influenced by the transition dynamics of the MDP and those dynamics are usually unknown.
+ 
+ Let us try to calculate the gradient anyway...
+ 
+ $$ \nabla _{\theta} J(\theta) = \nabla _{\theta} V _{\pi _{\theta}} (s_0) = \nabla _{\theta} \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)  \mathcal{P} _{\pi} (\tau) d \tau \\ =  \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau)   \nabla _{\theta} \mathcal{P} _{\pi} (\tau) d \tau $$
+ 
  
 
     
