@@ -54,4 +54,6 @@ A parameter update in the direction of $ \mathbb{E} _{\pi _{\theta}} [ \sum _{t=
 
 $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t=0}^{T-1} \gamma ^t r _{t}^i \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') $$
 
+This is quite cool, but we want to go even a little bit further. 
+
     
