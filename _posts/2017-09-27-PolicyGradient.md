@@ -48,12 +48,12 @@ $$ \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) = \nabla _{\theta}
 
 Here, we simply used the facts that the logarithm transforms products into sums and that the transition dynamics of the MDP do not depend on our parameters $\theta$. Let us now simply insert this result into the equation from above...
 
-$$ \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi _{\theta}} (\tau)  \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) d \tau = \int _{\mathbb{T}} (\sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau))  (\sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))) \mathcal{P} _{\pi _{\theta}} (\tau) d \tau \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') ] $$
+$$ \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi _{\theta}} (\tau)  \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) d \tau = \int _{\mathbb{T}} (\sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau))  (\sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))) \mathcal{P} _{\pi _{\theta}} (\tau) d \tau \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') ) ] $$
 
-A parameter update in the direction of $ \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') ]$ is often called (episodic) REINFORCE algorithm. The nice thing about this expression of the gradient $\nabla _{\theta} J(\theta)$ is that we were able to sample this expected value in a very intuitive way. Assume we experienced trajectories $<s_0,a_0^i,r_0^i,s_1^i,a_1^i,r_1^i,...,s_T^i>$ for $i = 1,...,M$ by applying policy $\pi _{\theta}$. As a consequence,
+A parameter update in the direction of $ \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') ]$ is often called (episodic) REINFORCE algorithm. The nice thing about this expression of the gradient $\nabla _{\theta} J(\theta)$ is that we were able to sample this expected value in a very intuitive way (Monte Carlo estimate). Assume we experienced trajectories $<s_0,a_0^i,r_0^i,s_1^i,a_1^i,r_1^i,...,s_T^i>$ for $i = 1,...,M$ by applying policy $\pi _{\theta}$. As a consequence,
 
-$$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t=0}^{T-1} \gamma ^t r _{t}^i \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') $$
+$$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t=0}^{T-1} \gamma ^t r _{t}^i \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') )$$
 
-This is quite cool, but we want to go even a little bit further. 
+This is quite cool, but we want to go even a little bit further and try to construct gradient estimators that tend to have a lower variance than the one above. This time one uses $\nabla _{\theta} J(\theta) = \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}] =  \sum _{t=0}^{T-1} \gamma ^t \nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}] $  
 
     
