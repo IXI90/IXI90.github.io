@@ -60,4 +60,4 @@ $$\nabla _{\theta} \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}] =  \nabla _{\
 
 Now, we insert this into the gradient formula:
 
-$$ \nabla _{\theta} J(\theta) = \sum _{t=0}^{T-1} \gamma ^t  \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}  (\sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))) ] \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma^t \mathcal{R}_t \sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))] = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t')) \sum _{t=t'}^{T-1} \gamma^t \mathcal{R}_t ] $$
+$$ \nabla _{\theta} J(\theta) = \sum _{t=0}^{T-1} \gamma ^t  \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}  \sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t')) ] \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma^t \mathcal{R}_t \sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))] = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t')) \sum _{t=t'}^{T-1} \gamma^t \mathcal{R}_t ] $$
