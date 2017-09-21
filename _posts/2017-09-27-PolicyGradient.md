@@ -44,11 +44,11 @@ For this we want to use the concept of the state-value function! We define $J(\t
 
 The usage of the derivative of the logarithm function in this context (in the last step above) is often called the "log-likelihood trick" in the literature. Now, consider for $\tau = <s_0,a_0,s_1,...,s_T>$ that 
 
-$$ \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) = \nabla _{\theta} log( \prod _{t=0}^{T-1} \pi(a _t \mid s _t) \mathcal{P}(s _{t+1} \mid a_t,s_t)) \\ = \nabla _{\theta} ( \sum _{t=0}^{T-1} log(\pi(a _t \mid s _t)) + \sum _{t=0}^{T-1} log(\mathcal{P}(s _{t+1} \mid a_t,s_t))) = \sum _{t=0}^{T-1}  \nabla _{\theta} log(\pi(a _t \mid s _t)) $$
+$$ \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) = \nabla _{\theta} log( \prod _{t=0}^{T-1} \pi _{\theta} (a _t \mid s _t) \mathcal{P}(s _{t+1} \mid a_t,s_t)) \\ = \nabla _{\theta} ( \sum _{t=0}^{T-1} log(\pi _{\theta} (a _t \mid s _t)) + \sum _{t=0}^{T-1} log(\mathcal{P}(s _{t+1} \mid a_t,s_t))) = \sum _{t=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t \mid s _t)) $$
 
 Here, we simply used the facts that the logarithm transforms products into sums and that the transition dynamics of the MDP do not depend on our parameters $\theta$. Let us now simply insert this result into the equation from above...
 
-$$ \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi _{\theta}} (\tau)  \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) d \tau = \int _{\mathbb{T}} (\sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau))  (\sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi(a _t' \mid s _t'))) \mathcal{P} _{\pi _{\theta}} (\tau) d \tau \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi(a _t' \mid s _t') ] $$
+$$ \int _{\mathbb{T}} \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau) \mathcal{P} _{\pi _{\theta}} (\tau)  \nabla _{\theta} log( \mathcal{P} _{\pi _{\theta}} (\tau)) d \tau = \int _{\mathbb{T}} (\sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t}(\tau))  (\sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t'))) \mathcal{P} _{\pi _{\theta}} (\tau) d \tau \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma ^t \mathcal{R} _{t} \sum _{t'=0}^{T-1}  \nabla _{\theta} log(\pi _{\theta} (a _t' \mid s _t') ] $$
 
  
 
