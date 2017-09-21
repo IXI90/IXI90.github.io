@@ -32,3 +32,4 @@ where $R_t: \mathbb{T} \rightarrow \mathbb{R}$ with $R_t (<s_0,a_0,s_1,...,s_T>)
 In this class of algorithms the policy gets parametrised directly, thus we have a collection of parameters $\theta \in \mathbb{R}^n$ and those parameters define a policy $\pi _{\theta}$. For example, the parameters $\theta$ could be the weights of an artificial neural network and the values of the output units could represent the policy $\pi _{\theta}$. Our goal is to improve the policy $\pi _{\theta}$ by changing the underlying parameters $\theta$. But how do we evaluate whether $\pi _{\theta}$ is a good or bad policy?
       
 
+$ \int $
