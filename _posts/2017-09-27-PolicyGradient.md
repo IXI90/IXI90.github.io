@@ -42,6 +42,8 @@ For this we want to use the concept of the state-value function! We define $J(\t
  
 (I'm aware of the fact that we are not addressing some mathematical issues - like measurability and rules for interchanging integral and derivative. The goal of this post is rather to give a quick and "dirty" introduction to this topic.)
 
+The usage of the derivative of the logarithm function in this context (in the last step above) is often called the "log-likelihood trick" in the literature. 
+
  
 
     
