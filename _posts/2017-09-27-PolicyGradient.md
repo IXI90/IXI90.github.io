@@ -105,4 +105,4 @@ It is obvious that the success of this approach strongly depends on the choice o
 
 $$\nabla _{\theta} log(\pi _{\theta} (a \mid s)) = \nabla _{\theta} (log(e^{\phi(s,a)^T \theta}) - log(\sum _{b \in \mathcal{A}} e^{\phi (s,b)^T \theta})) \\ = \phi (s,a) - \nabla _{\theta} log(\sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta}) = \phi(s,a) - \sum _{c \in \mathcal{A}} e^{\phi(s,c)^T \theta} \phi (s,c) / \sum _{b \in \mathcal{A}} e^{\phi (s,b)^T \theta} \\ = \phi (s,a) - \sum _{c \in \mathcal{A}} \pi _{\theta} (c \mid s) \phi (s,c) $$
 
-Now, we basically have everything we need! In the following sample code I only use three simple feature maps, namely $\phi _1 (s,a) := \mathbbm{1}{v_s <0 and a=0}$
+Now, we basically have everything we need! In the following sample code I only use three simple feature maps, namely $\phi _1 (s,a) := \mathbb{1} _{v_s <0 and a=0}$
