@@ -70,4 +70,8 @@ Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estim
 
 <img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="600" height="200" />
 
-*Remark*: If one is still worried about the variance of our gradient estimate, an additional "baseline" should be considered. The idea behind this concept is the following: Let's say we have a random variable $X$ with a rather high variance $Var(X)$, i.e. in our case our gradient of the objective function $J$. Then it would be beneficial to find a random variable $B$, called the baseline, with the properties $E[X-B]=E[B]$, $Var(B)$ small and $Cov(X,B)$ rather high. 
+*Remark*: If one is still worried about the variance of our gradient estimate, an additional "baseline" should be considered. The idea behind this concept is the following: Let's say we have a random variable $X$ with a rather high variance $Var(X)$, i.e. in our case our gradient of the objective function $J$. Then it would be beneficial to find a random variable $B$, called the baseline, with the properties...
+ 1. $E[X-B]=E[B]$ 
+ 2. $Var(B)$ small 
+ 3. $Cov(X,B)$ high. 
+ This implies that $Var(X-B)= Var(X)+Var(B)-2Cov(X,B) < Var(X)$ and hence, one can simply try to estimate $X-B$ instead of $X$ directly. Due to condition (1) this does not change the expected value, but has a reduced variance. 
