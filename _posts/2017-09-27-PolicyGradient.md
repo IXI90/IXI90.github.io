@@ -103,4 +103,4 @@ $$ \pi _{\theta} (a \mid s) := e^{\phi(s,a)^T \theta} / \sum _{b \in \mathcal{A}
   
 It is obvious that the success of this approach strongly depends on the choice of the features $\phi_i$. At the same time this is a chance to insert domain knowledge into this algorithm and hence to speed up convergence to a good policy. A further nice aspect of linear function approximators is the easy form of the desired gradient: 
 
-$$\nabla_{\theta} log(\pi_{\theta} (a \mid s)) = $$
+$$\nabla_{\theta} log(\pi_{\theta} (a \mid s)) = \nabla_{\theta}(log(e^{\phi(s,a)^T \theta}) - log(\sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta)) \\ = \phi(s,a) - \nabla _{\theta} log(\sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta) = \phi(s,a) - \sum _{c \in \mathcal{A}} e^{\phi(s,c)^T \theta} \phi(s,c) / \sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta} \\ = \phi(s,a) - \sum _{c \in \mathcal{A}} \pi _{\theta} (c \mid s) \phi(s,c) $$
