@@ -83,4 +83,4 @@ The crucial point here is to use the fact that the baseline function $b$ does no
 
 ## Example
 
-One very famous testing domain in RL is the Mountain Car problem. Here, the agent controls a small, under-powered car in a 2D-world. At the beginning of an episode the car is placed in between two hills (designated start state $s_0$) and the goal is get on top of the right hill. 
+One very famous testing domain in RL is the Mountain Car problem. Here, the agent controls a small, under-powered car in a 2D-world. At the beginning of an episode the car is placed in a valley (designated start state $s_0$) and the goal is to get on top of the rightmost hill. Due to the weak engine of the car, the agent can not directly accelerate up the steep slope of the right hill. Instead it has to first drive up the opposite hill and then use the additional power of the downswing to get to the target location.  
