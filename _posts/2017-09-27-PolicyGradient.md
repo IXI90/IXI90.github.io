@@ -99,5 +99,5 @@ $$ \phi(s,a):= \begin{bmatrix}
            \phi _{n} (s,a)
          \end{bmatrix} $$
 
-$$ \pi _{\theta} (a \mid s) := e^{\phi(s,a)^T \theta} / \sum _{\b \in \mathcal{A}} e^{\phi(s,b)^T \theta} $$
+$$ \pi _{\theta} (a \mid s) := e^{\phi(s,a)^T \theta} / \sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta} $$
   
