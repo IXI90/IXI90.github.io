@@ -75,4 +75,4 @@ Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estim
  2. $Var(B)$ small 
  3. $Cov(X,B)$ high. 
  
- This implies that $Var(X-B)= Var(X)+Var(B)-2Cov(X,B) < Var(X)$ and hence, one can simply try to estimate $X-B$ instead of $X$ directly. Due to condition (1) this does not change the expected value, but has a reduced variance. 
+ This implies that $Var(X-B)= Var(X)+Var(B)-2Cov(X,B) < Var(X)$ and hence, one can simply try to estimate $X-B$ instead of $X$ directly. Due to condition (1) this random variable does not change the desired expected value, but has a reduced variance. 
