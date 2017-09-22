@@ -225,4 +225,6 @@ I hope this code sample is rather self-explanatory - but now the big question: D
 
 In general, yes! However, there are runs, where this code does not yield a suitable policy. In my experience, it converges very quickly (within the first episodes) or never. I assume that this has to do with my poor choice of the feature maps (+ hyperparameters). Anyway, let us take a look at a "successful" (but not optimal) run: 
 
-[![Watch the video](https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/VideoMountain_short.mov)]
+<video width="320" height="240" controls>
+  <source src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/VideoMountain_short.mov" type="video/mp4">
+</video>
