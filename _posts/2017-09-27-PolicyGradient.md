@@ -80,3 +80,7 @@ Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estim
  $$ \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) \sum _{t=t'}^{T-1} \gamma^{t-t'} \mathcal{R}_t ] = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) ( \sum _{t=t'}^{T-1} \gamma^{t-t'} \mathcal{R}_t - b(s_t) )]$$ 
  
 The crucial point here is to use the fact that the baseline function $b$ does not depend on the action space $\mathcal{A}$. In practice, the baseline function $b$ is often equal to the state-value function, i.e. the expected return following policy $\pi _{\theta}$ from the given state until terminal time step $T$. 
+
+## Example
+
+One very famous testing domain in RL is the Mountain Car problem. Here, the agent controls a small, under-powered car in a 2D-world. At the beginning of an episode the car is placed in between two hills (designated start state $s_0$) and the goal is get on top of the right hill. 
