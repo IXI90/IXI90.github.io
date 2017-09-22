@@ -68,4 +68,4 @@ $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t'=0}^{T-1} \ga
 
 Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estimate of the action-value function of $\pi _{\theta}$ at time step $t$. At this point we could go into the direction of actor-critic methods by using an estimate of this action-value function, instead of sampling whole trajectories. But let us postpone this, and instead put the just derived algorithm into pseudocode:
 
-<img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="600" height="200" />
+<img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="650" height="230" />
