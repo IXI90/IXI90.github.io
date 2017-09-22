@@ -70,9 +70,11 @@ Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estim
 
 <img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="600" height="180" />
 
-*Remark*: If one is still worried about the variance of our gradient estimate, an additional "baseline" should be considered. The idea behind this concept is the following: Let's say we have a random variable $X$ with a rather high variance $Var(X)$, i.e. in our case our gradient of the objective function $J$. Then it would be beneficial to find a random variable $B$, called the baseline, with the properties...
+*Remark*: If one is still worried about the variance of our gradient estimate, an additional "baseline" should be considered. The idea behind this concept is the following: Let's say we have a random variable $X$ with a rather high variance $Var(X)$, i.e. in our case the gradient of the objective function $J$. Then it would be beneficial to find a random variable $B$, called the baseline, with the properties...
  1. $E[X-B]=E[B]$ 
  2. $Var(B)$ small 
  3. $Cov(X,B)$ high. 
  
- This implies that $Var(X-B)= Var(X)+Var(B)-2Cov(X,B) < Var(X)$ and hence, one can simply try to estimate $X-B$ instead of $X$ directly. Due to condition (1) this random variable does not change the desired expected value, but has a reduced variance. 
+ This implies that $Var(X-B)= Var(X)+Var(B)-2Cov(X,B) < Var(X)$ and hence, one can simply try to estimate $X-B$ instead of $X$ directly. Due to condition (1) this random variable does not change the desired expected value, but has a reduced variance. Now, back to our situation. With a few rather easy steps (comparable to those above), one can show that for any function $B: \mathcal{S} \rightarrow \mathbb{R}$ one has $\mathbb{E}_{\pi _{\theta}} [\nabla _{\theta} log(\pi _{\theta} (a_t \mid s_t)) b_t] = 0$ and thus:
+ 
+ $$ \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) \sum _{t=t'}^{T-1} \gamma^{t-t'} \mathcal{R}_t ] = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) ( \sum _{t=t'}^{T-1} \gamma^{t-t'} \mathcal{R}_t - B(s_t) )]$$ 
