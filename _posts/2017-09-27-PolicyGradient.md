@@ -87,5 +87,5 @@ One very famous testing domain in RL is the Mountain Car problem. Here, the agen
 
  <img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/MountainCar.png" width="300" height="170" />
 
-The aim is now to apply the algorithm described above with pseudocode to this problem. Every state of this (OpenAI Gym) environment is represented by two scalar values, namely position $P \in \[-1.2,0.6 \] and velocity $V \in \[ -0.07,0,07 \]$, i.e. we have a continuous state space. At every time step the agent can choose between three discrete actions - push left (0), no push (1) and push right (2).
+The aim is now to apply the algorithm described above with pseudocode to this problem. Every state of this (OpenAI Gym) environment is represented by two scalar values, namely position $P \in \[ -1.2,0.6 \]$ and velocity $V \in \[ -0.07,0,07 \]$, i.e. we have a continuous state space. At every time step the agent can choose between three discrete actions - push left (0), no push (1) and push right (2).
 Besides, an episode terminates if the agent arrives at the flag or if we are in time step $200$ (hence, $T = 200$). The reward function of this environment is rather simple. With every time step the agent experiences a negative reward of $-1$. As a consequence, the agent should be interested in terminating this game as fast as possible.  
