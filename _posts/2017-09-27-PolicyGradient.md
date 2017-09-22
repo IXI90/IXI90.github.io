@@ -90,7 +90,7 @@ One very famous testing domain in RL is the Mountain Car problem. Here, the agen
 The aim is now to apply the algorithm described above (see: pseudocode) to this problem. Every state of this (OpenAI Gym) environment is represented by two scalar values, namely position $p \in \[ -1.2,0.6 \]$ and velocity $v \in \[ -0.07,0,07 \]$, i.e. we have a continuous state space. At every time step the agent can choose between three discrete actions - push left (0), no push (1) and push right (2).
 Besides, an episode terminates if the agent arrives at the flag or if we are in time step $200$ (hence, $T = 200$). The reward function of this environment is rather simple. With every time step the agent experiences a negative reward of $-1$. As a consequence, the agent should be interested in terminating this game as fast as possible.  
 
-Firstly, we have to decide on how we want to represent the policy $\pi _{\theta}$. For this example we will use a linear function approximator. The parametrised policy $\pi _{\theta}$ has to map every state-action tupel to a probability. In order to achieve this we construct feature functions $\phi _i : \mathcal{S} \times \mathcal{A} \rightarrow $ for $i = 1,...,n$ and define...
+Firstly, we have to decide on how we want to represent the policy $\pi _{\theta}$. For this example we will use a linear function approximator. The parametrised policy $\pi _{\theta}$ has to map every state-action tupel to a probability. In order to achieve this we construct feature functions $\phi _i : \mathcal{S} \times \mathcal{A} \rightarrow \mathbb{R} $ for $i = 1,...,n$ and define...
 
 $$ \phi(s,a):= \begin{bmatrix}
            \phi _{1} (s,a) \\
@@ -101,3 +101,6 @@ $$ \phi(s,a):= \begin{bmatrix}
 
 $$ \pi _{\theta} (a \mid s) := e^{\phi(s,a)^T \theta} / \sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta} $$
   
+It is obvious that the success of this approach strongly depends on the choice of the features $\phi_i$. At the same time this is a chance to insert domain knowledge into this algorithm and hence to speed up convergence to a good policy. A further nice aspect of linear function approximators is the easy form of the desired gradient: 
+
+$$\nabla_{\theta} log(\pi_{\theta} (a \mid s)) = $$
