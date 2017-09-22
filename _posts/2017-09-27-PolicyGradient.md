@@ -106,3 +106,121 @@ It is obvious that the success of this approach strongly depends on the choice o
 $$\nabla _{\theta} log(\pi _{\theta} (a \mid s)) = \nabla _{\theta} (log(e^{\phi(s,a)^T \theta}) - log(\sum _{b \in \mathcal{A}} e^{\phi (s,b)^T \theta})) \\ = \phi (s,a) - \nabla _{\theta} log(\sum _{b \in \mathcal{A}} e^{\phi(s,b)^T \theta}) = \phi(s,a) - \sum _{c \in \mathcal{A}} e^{\phi(s,c)^T \theta} \phi (s,c) / \sum _{b \in \mathcal{A}} e^{\phi (s,b)^T \theta} \\ = \phi (s,a) - \sum _{c \in \mathcal{A}} \pi _{\theta} (c \mid s) \phi (s,c) $$
 
 Now, we basically have everything we need! In the following sample code I only use three simple feature maps, namely $\phi _1 (s,a) := \mathbb{1} _{\begin{Bmatrix} v _s<0, a=0 \end{Bmatrix}}$,$\phi _2 (s,a) := \mathbb{1} _{\begin{Bmatrix} v _s>0, a=2 \end{Bmatrix}}$  and $\phi _3 (s,a) := \mathbb{1} _{\begin{Bmatrix} p _s>0, a=2 \end{Bmatrix}}$. Those are rather random choices, and as a consequence the convergence of the code sample strongly depends on the choices of the hyperparameters. At this point, the reader should feel free and think of better feature maps than I did: 
+
+```python
+import gym
+import numpy as np
+
+def policy(theta, state, gradient = False):
+    pol_out = []
+    phi_values = []
+    sum = 0
+
+    for j in range(env.action_space.n):
+        phi = np.zeros(shape=3)
+        a = j # action
+        p = state[0] # position
+        v= state[1] # velocity
+
+        # define various features
+        if v < 0 and a == 0:
+            phi[0] = 1
+        if v > 0 and a == 2:
+            phi[1] = 1
+        if p > 0 and a == 2:
+            phi[2] = 1
+
+        phi_values.append(np.reshape(phi, (3, 1)))
+
+        y = np.exp(np.dot(phi, theta))
+        sum += y
+        pol_out = np.append(pol_out, y)
+
+    # calculate policy outputs for all actions
+    pol_out = (1 / sum) * pol_out
+
+    if not gradient:
+        return pol_out
+    else:
+        # for gradient calculation also need phi values
+        return pol_out, phi_values
+
+def action_selection(pol_out):
+    x = np.random.uniform(size=1)
+    if x < pol_out[0]:
+        action = 0
+    elif x < pol_out[0] + pol_out[1]:
+        action = 1
+    else:
+        action = 2
+    return action
+
+def inference(theta):
+    state = env.reset()  # start new episode
+    env.render()  # visualize the starting state
+    done = False
+    while done != True:
+        pol_out = policy(theta, state)
+        action = action_selection(pol_out)
+        state, _, done, _ = env.step(action)
+        env.render()
+
+def learn():
+    theta = np.zeros(shape=(3, 1))
+    EPISODE = 100 # number of parameter updates
+
+    for i in range(EPISODE):
+        state = env.reset()
+        done = False
+        episode = [state]
+        T = 0  # counter until terminal state
+
+        # first play one episode with current policy
+        while done != True:
+            # decide on action wrt policy representation
+            pol_out = policy(theta, state)
+            action = action_selection(pol_out)
+
+            # take action and receive feedback
+            state, reward, done, _ = env.step(action)
+
+            # safe for Monte Carlo estimate
+            episode.append(action)
+            episode.append(reward)
+            episode.append(state)
+            T += 1
+
+        # adapt parameters of policy representation
+        R = 0
+        gamma = 0.9
+        alpha = 2/(i+1)
+        for t in reversed(range(T - 1)):
+            index = (t + 1) * 3
+            state = episode[index - 3]
+            action = episode[index - 2]
+            reward = episode[index - 1]
+
+            R = gamma * R + reward
+            pol_out, phi_values = policy(theta, state, True)
+            phi_s_a = phi_values[action]
+            gradient = phi_s_a
+
+            for j in range(env.action_space.n):
+                phi_s_c = phi_values[j]
+                gradient -= pol_out[j] * phi_s_c
+
+            theta += alpha * np.power(gamma,t) * R * gradient
+    return theta
+
+# ---------------------------------------------------------
+if __name__ == "__main__":
+    env = gym.make("MountainCar-v0")
+    theta = learn()
+    for i in range(8):
+        inference(theta)
+
+```
+
+I hope this code sample is rather self-explanatory - but now the big question: Does it work? 
+
+In general, yes! However, there are runs, where this code does not yield a suitable policy. In my experience, it converges very quickly (within the first episodes) or never. I assume that this has to do with my poor choice of the feature maps (+ hyperparameters). Anyway, let us see a little proof: 
