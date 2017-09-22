@@ -68,7 +68,7 @@ $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t'=0}^{T-1} \ga
 
 Please, note that $\sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i$ is basically an estimate of the action-value function of $\pi _{\theta}$ at time step $t$. At this point we could go into the direction of actor-critic methods by using an estimate of this action-value function, instead of sampling whole trajectories. But let us postpone this, and instead put the just derived algorithm into pseudocode:
 
-<img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="600" height="200" />
+<img src="https://raw.githubusercontent.com/IXI90/IXI90.github.io/master/REINFORCE.jpg" width="600" height="180" />
 
 *Remark*: If one is still worried about the variance of our gradient estimate, an additional "baseline" should be considered. The idea behind this concept is the following: Let's say we have a random variable $X$ with a rather high variance $Var(X)$, i.e. in our case our gradient of the objective function $J$. Then it would be beneficial to find a random variable $B$, called the baseline, with the properties...
  1. $E[X-B]=E[B]$ 
