@@ -62,7 +62,7 @@ Now, we insert this into the gradient formula:
 
 $$ \nabla _{\theta} J(\theta) = \sum _{t=0}^{T-1} \gamma ^t  \mathbb{E} _{\pi _{\theta}} [ \mathcal{R} _{t}  \sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) ] \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t=0}^{T-1} \gamma^t \mathcal{R}_t \sum _{t'=0}^{t}  \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'}))] = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) \sum _{t=t'}^{T-1} \gamma^{t} \mathcal{R}_t ] \\ = \mathbb{E} _{\pi _{\theta}} [ \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'} \mid s _{t'})) \sum _{t=t'}^{T-1} \gamma^{t-t'} \mathcal{R}_t ] $$
 
-This expression of the policy gradient is often the main statement of the "Policy Gradient Theorem". Again we can use this to develop a nice and simple Monte Carlo method to approximate the gradient of the objective function. As before, assume we experienced trajectories $<s_0,a_0^i,r_0^i,s_1^i,a_1^i,r_1^i,...,s_T^i>$ for $i = 1,...,M$ by applying policy $\pi _{\theta}$. Then one can approximate the gradient by...    
+This expression of the policy gradient is often the main statement of the "Policy Gradient Theorem". Again we can use this to develop a nice and simple Monte Carlo method, which approximates the gradient of the objective function. As before, assume we experienced trajectories $<s_0,a_0^i,r_0^i,s_1^i,a_1^i,r_1^i,...,s_T^i>$ for $i = 1,...,M$ by applying policy $\pi _{\theta}$. Then one can approximate the gradient by...    
 
 $$ \nabla _{\theta} J(\theta) \approx 1/M \sum _{i=1}^{M} \sum _{t'=0}^{T-1} \gamma^{t'} \nabla _{\theta} log(\pi _{\theta} (a _{t'}^i \mid s _{t'}^i)) \sum _{t=t'}^{T-1} \gamma^{t-t'} r_t^i $$
 
